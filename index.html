@@ -10,15 +10,17 @@
     <title>Quantox</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon-32x32.png" />
+    <script src="script.js"></script>
+
 </head>
 
 <body>
     <header class="pageHeader">
         <h1>crowdfund</h1>
         <div class="menu">
-            <h3>About</h3>
-            <h3>Discover</h3>
-            <h3>Get started</h3>
+            <a href="#about"><h3>About</h3></a>
+            <a href="#discover"><h3>Discover</h3></a>
+            <a href="#getStarted"><h3>Get started</h3></a>
         </div>
     </header>
     <div class="container">
@@ -30,9 +32,10 @@
             <h2 class="subTitle">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</h2>
             <div class="iconsHeader">
                 <button class="btnPrimary" type="button">Back this project</button>
-                <button class="btnSecondary" type="button">
-                    <img class="bookmarkIcon" src="assets/icon-bookmark.svg" />
-                    Bookmark</button>
+                <button id="bookmarkedBtn" onclick="bookmarked()" class="btnSecondary" type="button">
+                    <img id="bookmarkIcon" src="assets/icon-bookmark.svg" />
+                    <span id="bookmarked">Bookmark</span>
+                    </button>
             </div>
         </div>
         <div class="backers">
@@ -64,7 +67,7 @@
                 <progress class="greenProgress" max="100" value="78"></progress>
             </div>
         </div>
-        <div class="about">
+        <div class="about" id="about">
             <p class="aboutTitle">About this project</p>
             <p class="aboutText">The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more
                 comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture
