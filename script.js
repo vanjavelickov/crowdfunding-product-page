@@ -10,3 +10,12 @@ function bookmarked(){
     // bookmarkedIcon.style.color = 'red';
     bookmarkedText.innerHTML = 'Bookmarked';
 }
+
+$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".box").not(targetBox).hide();
+        $(targetBox).show();
+    });
+});
