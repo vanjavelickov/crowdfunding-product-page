@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="assets/favicon-32x32.png" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="script.js"></script>
 </head>
 
@@ -49,7 +49,7 @@
         <div class="progress">
             <div class="backed">
                 <div>
-                    <span class="number">$89,914</span>
+                    <span class="number" id="number">$</span>
                     <p class="letters">
                         of $100,000 backed
                     </p>
@@ -58,7 +58,7 @@
             </div>
             <div class="total">
                 <div>
-                    <span class="number">5,007</span>
+                    <span class="number" id="total"></span>
                     <p class="letters">
                         total backers
                     </p>
@@ -66,7 +66,7 @@
                 <span class="verticle-line"></span>
             </div>
             <div class="days">
-                <span class="number">56</span>
+                <span class="number" id="days"></span>
                 <p class="letters">
                     days left
                 </p>
@@ -93,7 +93,7 @@
                     promotional campaign,
                     and you’ll be added to a special Backer member list.</p>
                 <span class="left">
-                    <span class="number">101</span>
+                    <span class="number" id="bamboStand"></span>
                     left
                 </span>
                 <button class="btnPrimary btnReward">Select Reward</button>
@@ -104,7 +104,7 @@
                 <p class="details">You get a Black Special Edition computer stand and a personal thank you. You’ll be
                     added to our Backer member list. Shipping is included.</p>
                 <span class="left">
-                    <span class="number">64</span>
+                    <span class="number" id="blackStand"></span>
                     left
                 </span>
                 <button class="btnPrimary btnReward">Select Reward</button>
@@ -116,7 +116,7 @@
                 <p class="details detailsOutOfStock">You get two Special Edition Mahogany stands, a Backer T-Shirt, and
                     a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
                 <span class="left leftOutOfStock">
-                    <span class="number numberOutOfStock">0</span>
+                    <span class="number numberOutOfStock" id="mahogany"></span>
                     left
                 </span>
                 <button disabled class="btnPrimary btnReward btnOutOfStock">Out of stock</button>
@@ -145,35 +145,76 @@
             </div>
             <div class="inputGroup">
                 <div class="inputFlex">
-                    <input id="radio2" name="radio" value="green" type="radio" />
+                    <input id="radio2" name="radio" value="pledgeDiv" type="radio" />
                     <label for="radio2" class="gridInput">
                         <div class="labelRadio price">Bamboo Stand</div>
                         <div class="pledgeRadio price">Pledge $25 or more</div>
-                        <div class="leftRadio left"><span class="number">101</span>left</div>
+                        <div class="leftRadio left end"><span class="number"></span>left</div>
                         <div class="descriptionRadio aboutText">
                             You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional
                             campaign, and you’ll be added to a special Backer member list.
                         </div>
                     </label>
                 </div>
-                <div class="green box">this is green</div>
+                <div class="pledgeDiv box">
+                    <form id="form" class="pledge">
+                        <span>Enter your pledge</span>
+                        <div class="pledgeInput">
+                            <input id="money" class="inputField" name="money" autocomplete="off" type="text" />
+                            <button type="submit" id="submit" class="btnPrimary btnReward">Continue</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="inputGroup">
                 <div class="inputFlex">
-                    <input id="radio3" name="radio" value="red" type="radio" />
+                    <input id="radio3" name="radio" value="pledgeDivTwo" type="radio" />
                     <label for="radio3" class="gridInput">
                         <div class="labelRadio">Black Edition Stand</div>
                         <div class="pledgeRadio price">Pledge $75 or more</div>
-                        <div class="leftRadio left"><span class="number">64</span>left</div>
+                        <div class="leftRadio left end"><span class="number"></span>left</div>
                         <div class="descriptionRadio aboutText">
-                            You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our
+                            You get a Black Special Edition computer stand and a personal thank you. You’ll be added to
+                            our
                             Backer member list. Shipping is included.
                         </div>
                     </label>
                 </div>
-                <div class="red box">this is red</div>
+                <div class="pledgeDivTwo box">
+                    <form class="pledge">
+                        <span>Enter your pledge</span>
+                        <div class="pledgeInput">
+                            <input id="money" class="inputField" name="money" autocomplete="off" type="text" />
+                            <button type="submit" class="btnPrimary btnReward">Continue</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="inputGroup">
+                <div class="inputFlex">
+                    <input id="radio4" name="radio" type="radio" />
+                    <label for="radio4" class="gridInput">
+                        <div class="labelRadio textOutOfStock">Mahogany Special Edition</div>
+                        <div class="pledgeRadio price priceOutOfStock">Pledge $200 or more</div>
+                        <div class="leftRadio left end leftOutOfStock"><span class="number">0</span>left</div>
+                        <div class="descriptionRadio aboutText detailsOutOfStock">
+                            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you.
+                            You’ll be added to our Backer member list. Shipping is included.
+                        </div>
+                    </label>
+                </div>
             </div>
             <a href="#" class="closeModal"><img src="assets/icon-close-modal.svg" /></a>
+        </div>
+    </div>
+    <div id="successModal" class="successModal">
+        <div class="successContent">
+            <div>
+                <img src="assets/icon-check.svg"/>
+            </div>
+            <div>Thanks for your support!</div>
+            <div>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</div>
+            <div><button onclick="closeSuccessModal()" id="closeSuccessModal" class="btnPrimary">Got it!</button></div>
         </div>
     </div>
 </body>
