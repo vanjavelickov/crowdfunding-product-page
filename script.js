@@ -1,3 +1,8 @@
+// window.onload = () => initialize();//dd: () => function initialize() {
+//     presenter = new Presenter();
+//     createForm();
+// }
+
 import {
     Presenter
 } from "./presenter.js";
@@ -28,15 +33,15 @@ function checkRadioInput(event) {
 
 function createForm() {
     // form = document.createElement('form');
-    form.setAttribute("action", "submit.php");
-    var pledgeInput = document.createElement("input");
-    pledgeInput.setAttribute("type", "text");
-    pledgeInput.setAttribute("name", "money");
+    // form.setAttribute("action", "submit.php");
+    // var pledgeInput = document.createElement("input");
+    // pledgeInput.setAttribute("type", "text");
+    // pledgeInput.setAttribute("name", "money");
     // document.getElementById(event.target.id).appendChild(form);
 }
 
 function appendForm(divId) {
-    divId.appendChild(this.form);
+    // divId.appendChild(this.form);
 }
 
 function closeSuccessModal() {

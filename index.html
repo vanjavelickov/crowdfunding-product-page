@@ -13,7 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
     <script type="module" src="script.js"></script>
 </head>
 
@@ -38,7 +37,7 @@
             <h1 class="title">Mastercraft Bamboo Monitor Riser</h1>
             <h2 class="subTitle">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</h2>
             <div class="buttonsHeader">
-                <a href="#projectModal"><button class="btnPrimary" type="button">Back this project</button></a>
+                <button class="btnPrimary" id="openModal" type="button">Back this project</button>
                 <button id="bookmarkedBtn" class="btnBookmark btnSecondary" type="button">
                     <img id="bookmarkedIcon" src="assets/icon-bookmark.svg" />
                     <span id="bookmarked">Bookmark</span>
@@ -178,7 +177,7 @@
                     </div>
                 </label>
             </article>
-            <a href="#" class="closeModal"><img src="assets/icon-close-modal.svg" /></a>
+            <span id="closeModal" class="closeModal"><img src="assets/icon-close-modal.svg" />
         </div>
     </div>
     <div id="successModal" class="successModal">

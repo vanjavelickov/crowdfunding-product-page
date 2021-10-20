@@ -9,6 +9,15 @@ export class Presenter {
         this.modalNumber = document.getElementById('modalNumber');
         this.modalBlack = document.getElementById('modalBlack');
         this.modalSpecial = document.getElementById('modalSpecial');
+        this.bookmarkedIcon = document.getElementById('bookmarkedIcon');
+        this.buttonSecondary = document.getElementById('bookmarkedBtn');
+        this.buttonSecondary.onclick = () => this.bookmark();
+        this.openModalBtn = document.getElementById('openModal');
+        this.openModalBtn.onclick = () => this.openModal();
+        this.closeModalBtn = document.getElementById('closeModal');
+        this.closeModalBtn.onclick = () => this.closeModal();
+        window.onclick = (event) => this.outsideClick(event);
+        this.projectModal = document.getElementById('projectModal');
         this.backedMoney = 89914;
         this.totalBackers = 5007;
         this.daysLeft = 56;
@@ -16,9 +25,6 @@ export class Presenter {
         this.blackStand = 64;
         this.specialEdition = 0;
         this.bookmarked = false;
-        this.bookmarkedIcon = document.getElementById('bookmarkedIcon');
-        this.buttonSecondary = document.getElementById('bookmarkedBtn');
-        this.buttonSecondary.onclick = () => this.bookmark();
         this.showValues();
     }
 
@@ -47,9 +53,19 @@ export class Presenter {
             this.buttonSecondary.classList.add("btnSecondary");
             this.buttonSecondary.innerHTML = '<img src="assets/icon-bookmark.svg" />' + 'Bookmark';
         }
+    }
 
+    openModal() {
+        this.projectModal.style.display = 'block';
+    }
 
-        // this.submitButton = this.containerDiv.getElementsById('submit');
-        // this.submitButton.onsubmit = (event) => this.closeModal(event);
+    closeModal(){
+        this.projectModal.style.display = 'none';
+    }
+
+    outsideClick(event) {
+        if(event.target === projectModal){
+            this.projectModal.style.display = 'none';
+        }
     }
 }
