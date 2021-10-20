@@ -516,32 +516,32 @@ progress::-webkit-progress-value {
 }
 
 .inputGroup {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.inputFlex {
-    display: flex;
-    flex-direction: row;
     margin-right: 0;
     padding-top: 20px;
     gap: 20px;
     padding-left: 10px;
-    border-bottom: 1px solid var(--darkGrey);
+    display: grid;
+    grid-template-columns: minmax(30px, 50px) 1fr;
+    grid-template-rows: 25px 100px 1fr;
+    grid-template-areas:
+        "r inp"
+        ". .";
+}
 
+.radio {
+    grid-area: r;
 }
 
 .gridInput {
+    grid-area: inp;
     display: grid;
     grid-template-columns: minmax(190px, 200px) minmax(100px, 145px) 1fr 28px;
-    grid-template-rows: 25px 1fr 32px;
+    grid-template-rows: 25px 100px;
     grid-template-areas:
         "label pledge left ."
-        " desc desc desc ."
-        "ree ree gree gree";
+        " desc desc desc .";
 }
 
 .labelRadio {
@@ -560,12 +560,12 @@ progress::-webkit-progress-value {
     grid-area: desc;
 }
 
-.box {
+/* .box {
     color: var(--darkGrey);
     display: none;
     height: 80px;
     grid-area: gree;
-}
+} */
 
 .pledge {
     display: flex;

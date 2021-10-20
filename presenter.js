@@ -42,12 +42,10 @@ export class Presenter {
             this.buttonSecondary.innerHTML = '<img class="filterGreen" src="assets/icon-bookmark.svg" />' + 'Bookmarked';
         }
         else {
-            console.log('tu sam')
            this.buttonSecondary.innerText = '<img src="assets/icon-bookmark.svg" />';
             this.buttonSecondary.classList.remove("btnSecondaryBookmarked");
             this.buttonSecondary.classList.add("btnSecondary");
             this.buttonSecondary.innerHTML = '<img src="assets/icon-bookmark.svg" />' + 'Bookmark';
-
         }
 
 
