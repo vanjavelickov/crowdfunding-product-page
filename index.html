@@ -13,7 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="script.js"></script>
+    
+    <script type="module" src="script.js"></script>
 </head>
 
 <body>
@@ -26,9 +27,7 @@
             <a href="#discover">
                 <h3>Discover</h3>
             </a>
-            <a href="#getStarted">
-                <h3>Get started</h3>
-            </a>
+            <h3>Get started</h3>
         </div>
     </header>
     <div class="container">
@@ -40,8 +39,8 @@
             <h2 class="subTitle">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</h2>
             <div class="buttonsHeader">
                 <a href="#projectModal"><button class="btnPrimary" type="button">Back this project</button></a>
-                <button id="bookmarkedBtn" onclick="bookmarked()" class="btnSecondary" type="button">
-                    <img id="bookmarkIcon" src="assets/icon-bookmark.svg" />
+                <button id="bookmarkedBtn" class="btnBookmark btnSecondary" type="button">
+                    <img id="bookmarkedIcon" src="assets/icon-bookmark.svg" />
                     <span id="bookmarked">Bookmark</span>
                 </button>
             </div>
@@ -145,25 +144,16 @@
             </div>
             <div class="inputGroup">
                 <div class="inputFlex">
-                    <input id="radio2" name="radio" value="pledgeDiv" type="radio" />
+                    <input id="radio2" name="radio" type="radio" />
                     <label for="radio2" class="gridInput">
                         <div class="labelRadio price">Bamboo Stand</div>
                         <div class="pledgeRadio price">Pledge $25 or more</div>
-                        <div class="leftRadio left end"><span class="number"></span>left</div>
+                        <div class="leftRadio left end"><span class="number" id="modalNumber"></span>left</div>
                         <div class="descriptionRadio aboutText">
                             You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional
                             campaign, and you’ll be added to a special Backer member list.
                         </div>
                     </label>
-                </div>
-                <div class="pledgeDiv box">
-                    <form id="form" class="pledge">
-                        <span>Enter your pledge</span>
-                        <div class="pledgeInput">
-                            <input id="money" class="inputField" name="money" autocomplete="off" type="text" />
-                            <button type="submit" id="submit" class="btnPrimary btnReward">Continue</button>
-                        </div>
-                    </form>
                 </div>
             </div>
             <div class="inputGroup">
@@ -172,7 +162,7 @@
                     <label for="radio3" class="gridInput">
                         <div class="labelRadio">Black Edition Stand</div>
                         <div class="pledgeRadio price">Pledge $75 or more</div>
-                        <div class="leftRadio left end"><span class="number"></span>left</div>
+                        <div class="leftRadio left end"><span class="number" id="modalBlack"></span>left</div>
                         <div class="descriptionRadio aboutText">
                             You get a Black Special Edition computer stand and a personal thank you. You’ll be added to
                             our
@@ -180,23 +170,14 @@
                         </div>
                     </label>
                 </div>
-                <div class="pledgeDivTwo box">
-                    <form class="pledge">
-                        <span>Enter your pledge</span>
-                        <div class="pledgeInput">
-                            <input id="money" class="inputField" name="money" autocomplete="off" type="text" />
-                            <button type="submit" class="btnPrimary btnReward">Continue</button>
-                        </div>
-                    </form>
-                </div>
             </div>
             <div class="inputGroup">
                 <div class="inputFlex">
-                    <input id="radio4" name="radio" type="radio" />
+                    <input disabled id="radio4" name="radio" type="radio" />
                     <label for="radio4" class="gridInput">
                         <div class="labelRadio textOutOfStock">Mahogany Special Edition</div>
                         <div class="pledgeRadio price priceOutOfStock">Pledge $200 or more</div>
-                        <div class="leftRadio left end leftOutOfStock"><span class="number">0</span>left</div>
+                        <div class="leftRadio left end leftOutOfStock"><span class="number" id="modalSpecial"></span>left</div>
                         <div class="descriptionRadio aboutText detailsOutOfStock">
                             You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you.
                             You’ll be added to our Backer member list. Shipping is included.
@@ -210,13 +191,15 @@
     <div id="successModal" class="successModal">
         <div class="successContent">
             <div>
-                <img src="assets/icon-check.svg"/>
+                <img src="assets/icon-check.svg" />
             </div>
             <div>Thanks for your support!</div>
-            <div>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</div>
+            <div>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will
+                get an email once our campaign is completed.</div>
             <div><button onclick="closeSuccessModal()" id="closeSuccessModal" class="btnPrimary">Got it!</button></div>
         </div>
     </div>
+
 </body>
 
 </html>
