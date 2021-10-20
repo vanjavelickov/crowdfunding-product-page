@@ -1,52 +1,14 @@
-// window.onload = () => initialize();//dd: () => function initialize() {
-//     presenter = new Presenter();
-//     createForm();
-// }
-
 import {
     Presenter
 } from "./presenter.js";
 
 window.onload = initialize();
 var presenter;
-let form = document.createElement('form');
+
 
 function initialize() {
     presenter = new Presenter();
-    createForm();
-}
-
-let inputGroup = document.getElementsByClassName('inputGroup');
-for (let i = 0; i < inputGroup.length; i++) {
-    inputGroup[i].onclick = (event) => checkRadioInput(event);
-}
-
-function checkRadioInput(event) {
-    event.preventDefault();
-    let nearestArticle = event.target.closest("article");
-    let idNearestArticle = document.getElementById(nearestArticle.id);
-    appendForm(idNearestArticle);
-    
-    // let createdDiv = document.createElement('div');
-    // idNearestArticle.appendChild(createdDiv);
-}
-
-function createForm() {
-    // form = document.createElement('form');
-    // form.setAttribute("action", "submit.php");
-    // var pledgeInput = document.createElement("input");
-    // pledgeInput.setAttribute("type", "text");
-    // pledgeInput.setAttribute("name", "money");
-    // document.getElementById(event.target.id).appendChild(form);
-}
-
-function appendForm(divId) {
-    // divId.appendChild(this.form);
-}
-
-function closeSuccessModal() {
-    let success = document.getElementById('successModal');
-    success.style.visibility = 'hidden';
+    // createForm();
 }
 
 // $(document).ready(function () {
