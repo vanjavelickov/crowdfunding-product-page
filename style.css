@@ -15,7 +15,8 @@ body {
 /* HEADER */
 
 .pageHeader {
-    background: no-repeat top/cover url('assets/image-hero-desktop.jpg');
+    background: url('assets/image-hero-desktop.jpg');
+    background-size: cover;
     display: flex;
     justify-content: space-around;
     min-height: 400px;
@@ -27,12 +28,63 @@ a {
     color: white;
 }
 
+li {
+    list-style: none;
+}
+
 a:link {
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: none;
+}
+
+.boldClass {
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.navMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navItem {
+    margin-left: 5rem;
+}
+
+.navLink {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: black;
+}
+
+.navLogo {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: white;
 }
 
 .menu {
@@ -48,8 +100,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
     height: 100vh;
     transform: translateY(-9%);
 }
@@ -65,7 +116,7 @@ a:hover {
     justify-content: space-around;
     align-items: center;
     flex: 0 0 297px;
-    width: 50%;
+    width: 70vh;
 }
 
 .logo {
@@ -74,9 +125,9 @@ a:hover {
 }
 
 .buttonsHeader {
-    align-self: stretch;
     display: flex;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .title {
@@ -90,6 +141,7 @@ a:hover {
     font-size: 16px;
     line-height: 20px;
     color: #7A7A7A;
+    overflow-wrap: break-word;
     font-weight: normal;
 }
 
@@ -98,7 +150,7 @@ a:hover {
     background: var(--moderateCyan);
     color: white;
     border-radius: 33.5px;
-    min-width: 204px;
+    padding: 20px;
     height: 56px;
     border: 0px;
     white-space: nowrap;
@@ -106,10 +158,6 @@ a:hover {
     font-weight: bold;
     font-size: 16px;
     line-height: 20px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
 }
 
 .btnBookmark {
@@ -163,35 +211,46 @@ a:hover {
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     display: grid;
-    grid-template-columns: 48px minmax(137px, 210px) minmax(59px, 210px) minmax(58px, 210px) 48px;
-    grid-template-rows: 48px 1fr minmax(75px, 90px);
+    grid-template-columns: 5% 30% 29% 31% 5%;
+    grid-template-rows: 15% 40% 35% 15%;
     grid-template-areas: ". . . . ."
         ". backed total days ."
         ". progress progress progress progress";
     justify-content: center;
-    width: 50%;
+    width: 70vh;
+    align-items: end;
+    flex: 0 0 217px;
+
 }
 
 .backed {
+    justify-self: start;
     grid-area: backed;
-    align-self: center;
     display: flex;
-    justify-content: start;
-    gap: 50px;
+    gap: 20px;
 }
 
 .total {
+    justify-self: start;
+    align-self: end;
     grid-area: total;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .days {
     grid-area: days;
     display: flex;
-    flex-direction: column;
-    margin-left: 40px;
+    gap: 20px;
 }
+
+
+.verticle-line {
+    grid-area: verticle;
+    border-left: 1px solid rgba(135, 135, 157, 0.25);
+    height: 63px;
+}
+
 
 
 .progressBar {
@@ -239,12 +298,6 @@ progress::-webkit-progress-value {
     color: var(--darkGrey);
 }
 
-.verticle-line {
-    align-self: center;
-    border-left: 1px solid rgba(135, 135, 157, 0.25);
-    height: 63px;
-}
-
 /* About */
 
 .about {
@@ -253,7 +306,8 @@ progress::-webkit-progress-value {
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     align-self: center;
     justify-self: center;
-    width: 50%;
+    width: 70vh;
+    margin: 1%;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -336,7 +390,7 @@ progress::-webkit-progress-value {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 30px;
+    line-height: 25px;
     display: flex;
     align-items: center;
     color: #7A7A7A;
@@ -471,9 +525,16 @@ progress::-webkit-progress-value {
     margin: 50px auto;
     background: white;
     display: flex;
+    max-width: 60%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 35px;
+}
+
+.successText {
+    text-align: center;
+    max-width: 75%;
 }
 
 .closeModal {
@@ -528,10 +589,15 @@ progress::-webkit-progress-value {
 
 .labelRadio {
     grid-area: label;
+    font-weight: bold;
 }
 
 .pledgeRadio {
     grid-area: pledge;
+}
+
+.labelRadio:hover {
+    color: #3CB3AB;
 }
 
 .leftRadio {
@@ -618,31 +684,36 @@ input[type="text"] {
     outline: none;
 }
 
-@media only screen and (max-width: 786px) {
+@media only screen and (max-width: 650px) {
 
-    /* Header */
+    /* header */
     .pageHeader {
-        background: no-repeat top/cover url('assets/image-hero-mobile.jpg');
-        background-size: 100% 100%;
-        min-width: 0;
+        background: url('assets/image-hero-mobile.jpg');
     }
 
     .header {
-        min-height: 250px;
-        min-width: 200px;
+        width: 80%;
     }
 
-    .title {
-        font-size: 20px;
-        /* overflow-wrap: break-word; */
-        max-width: 300px;
-    }
-
+    .title,
     .subTitle {
-        width: 60%;
-        font-size: 14px;
+        text-align: center;
+        max-width: 80%;
     }
 
+    .buttonsHeader {
+        justify-content: center;
+        gap: 0;
+    }
+
+    .btnBookmark {
+        display: block;
+        margin-right: -60px;
+        height: 0;
+        font-size: 0;
+    }
+
+    /* container */
     .container {
         display: flex;
         flex-direction: column;
@@ -652,65 +723,167 @@ input[type="text"] {
         transform: translateY(-9%);
     }
 
-    .buttonsHeader {
-        align-self: flex-start;
-        justify-content: center;
+    /* progress */
+
+    .progress {
+        width: 80%;
+        grid-template-columns: 100%;
+        grid-template-rows: 28% 25% 28% 15%;
+        grid-template-areas:
+            "backed"
+            "total"
+            "days"
+            "progress";
+        gap: 5px;
     }
 
-    .btnBookmark {
-        width: 0;
+    .verticle-line {
         align-self: center;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(135, 135, 157, 0.25);
+        width: 63px;
         height: 0;
-        font-size: 0;
     }
 
+    .number {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    .letters {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .backed {
+        justify-self: center;
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .total {
+        justify-self: center;
+        align-self: start;
+    }
+
+    .days {
+        justify-self: center;
+        align-self: start;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* about */
+    .about {
+        width: 80%;
+    }
+
+    .aboutTitle {
+        text-align: center;
+        align-self: center;
+    }
+
+    .aboutText {
+        text-align: center;
+        align-self: center;
+    }
+
+    .aboutCard {
+        display: grid;
+        grid-template-columns: 5px 1fr 5px;
+        grid-template-rows: 25px 25px minmax(120px, 130px) 20px 50px;
+        grid-template-areas:
+            ". top ."
+            ". price ."
+            ". details ."
+            ". left ."
+            ". btnReward .";
+    }
+
+    .outOfStockCard {
+        grid-template-columns: 5px 1fr 5px;
+        grid-template-rows: 25px 25px minmax(120px, 130px) 40px 48px 19px;
+        grid-template-areas:
+            ". top ."
+            ". price ."
+            ". details ."
+            ". left ."
+            ". btnReward .";
+    }
+
+    /* 
+    .inputGroups {
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: minmax(30px, 32px) minmax(220px, 260px);
+        grid-template-rows: minmax(125px, 250px) minmax(120px, 130px);
+        grid-template-areas:
+            "r inp"
+            "fo fo";
+    }
+
+    .gridInput {
+        display: grid;
+        grid-template-columns: minmax(190px, 200px) minmax(100px, 145px) 1fr 28px;
+        grid-template-rows: 25px 100px;
+        grid-template-areas:
+            "label pledge left ."
+            " desc desc desc .";
+    } */
+
+    .navMenu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .navMenu.active {
+        left: 0;
+    }
+
+    .navItem {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+
 }
 
-/* Progress */
+@media only screen and (max-width: 450px) {
+    .btnBookmark {
+        display: none;
+    }
 
-.progress {
-    /* min-height: 250px;
-    width: 50%;
-    grid-template-columns: minmax(100px, 445px);
-    grid-template-rows: minmax(66px, 90px) minmax(66px, 80px) minmax(66px, 80px) 30px;
-    grid-template-areas: "backed"
-        "total"
-        "days"
-        "progress";
-    justify-content: center; */
-}
-
-.verticle-line {
-    align-self: center;
-    border-left: none;
-    border-bottom: 1px solid rgba(135, 135, 157, 0.25);
-    width: 63px;
-}
-
-.number {
-    font-size: 28px;
-    line-height: 35px;
-}
-
-.letters {
-    font-size: 13px;
-    line-height: 16px;
-}
-
-.backed {
-    align-self: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.total {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.days {
-    margin: 0;
-    align-items: center;
+    .details,
+    .detailsOutOfStock {
+        line-height: 20px;
+    }
 }

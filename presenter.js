@@ -1,5 +1,12 @@
 export class Presenter {
     constructor() {
+        this.hamburger = document.querySelector(".hamburger");
+        this.navMenu = document.querySelector(".navMenu");
+        this.navLink = document.querySelectorAll(".navLink");
+        for (let i = 0; i < this.navLink.length; i++) {
+            this.navLink[i].onclick = (event) => this.closeMenu();
+        }
+        this.hamburger.onclick = () => this.mobileMenu();
         this.backedMoneyNumber = document.getElementById('number');
         this.totalBackersNumber = document.getElementById('total');
         this.daysLeftNumber = document.getElementById('days');
@@ -45,6 +52,15 @@ export class Presenter {
         this.progress = document.getElementsByClassName('greenProgress')[0];
     }
 
+    mobileMenu() {
+        this.hamburger.classList.toggle("active");
+        this.navMenu.classList.toggle("active");
+    }
+
+    closeMenu() {
+        this.hamburger.classList.remove("active");
+        this.navMenu.classList.remove("active");
+    }
     showValues() {
         this.backedMoneyNumber.innerHTML = `$${this.backedMoney}`;
         this.totalBackersNumber.innerHTML = `${this.totalBackers}`;
@@ -122,7 +138,7 @@ export class Presenter {
         this.backedMoneyNumber.innerHTML = `$${this.backedMoney}`;
         this.totalBackers++;
         this.totalBackersNumber.innerHTML = this.totalBackers;
-        this.progress.value = parseInt(this.backedMoney / 100000 * 100);
+        this.progress.value = parseInt(this.backedMoney / 1000);
         if (event.target.parentElement.id === '2') {
             this.bamboStand--;
             this.bamboStandNumber.innerHTML = `${this.bamboStand}`;

@@ -18,7 +18,7 @@
 
 <body>
     <header class="pageHeader">
-        <h1>crowdfund</h1>
+        <!-- <h1>crowdfund</h1>
         <div class="menu">
             <a href="#about">
                 <h3>About</h3>
@@ -27,10 +27,37 @@
                 <h3>Discover</h3>
             </a>
             <h3>Get started</h3>
-        </div>
+        </div> -->
+       
+
+        <nav class="navbar">
+            <a href="#" class="navLogo">crowdfund</a>
+            <ul class="navMenu">
+                <li class="navItem">
+                    <a href="#about" class="navLink">About</a>
+                </li>
+                <li class="navItem">
+                    <a href="#" class="navLink">Discover</a>
+                </li>
+                <li class="navItem">
+                    <a href="#" class="navLink">Get started</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
     </header>
     <div class="container">
-         <div class="header">
+        <div class="header">
             <div>
                 <img class="logo" src="assets/logo-mastercraft.svg" />
             </div>
@@ -43,8 +70,8 @@
                     <span id="bookmarked">Bookmark</span>
                 </button>
             </div>
-        </div> 
-         <div class="progress">
+        </div>
+        <div class="progress">
             <div class="backed">
                 <div>
                     <span class="number" id="number">$</span>
@@ -55,25 +82,26 @@
                 <span class="verticle-line"></span>
             </div>
             <div class="total">
-                <div>
-                    <span class="number" id="total"></span>
-                    <p class="letters">
-                        total backers
-                    </p>
-                </div>
-                <span class="verticle-line"></span>
+                <span class="number" id="total"></span>
+                <p class="letters">
+                    total backers
+                </p>
             </div>
             <div class="days">
-                <span class="number" id="days"></span>
-                <p class="letters">
-                    days left
-                </p>
+                <span class="verticle-line"></span>
+                <div>
+                    <span class="number" id="days"></span>
+                    <p class="letters">
+                        days left
+                    </p>
+                </div>
+
             </div>
             <div class="progressBar">
                 <progress class="greenProgress" max="100" value="89"></progress>
             </div>
-        </div> 
-        <div class="about" id="about">
+        </div>
+         <div class="about" id="about">
             <p class="aboutTitle">About this project</p>
             <p class="aboutText">The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates
                 your screen to a more
@@ -120,9 +148,9 @@
                 </span>
                 <button disabled class="btnPrimary btnReward btnOutOfStock">Out of stock</button>
             </div>
-        </div>
-    </div>
-    <div id="projectModal" class="projectModal">
+        </div> 
+    </div> 
+     <div id="projectModal" class="projectModal">
         <div class="contentModal">
             <span class="modalTopText">Back this project</span>
             <p class="details">
@@ -131,7 +159,7 @@
             <article id="1" class="inputGroups">
                 <input id="radio1" name="radio" class="radio" type="radio" />
                 <label for="radio1" class="gridInput">
-                    <div class="labelRadio price">Pledge with no reward</div>
+                    <div class="labelRadio">Pledge with no reward</div>
                     <div class="pledgeRadio"></div>
                     <div class="leftRadio"><span class="number"></span></div>
                     <div class="descriptionRadio aboutText">
@@ -143,7 +171,7 @@
             <article id="2" class="inputGroups">
                 <input id="radio2" name="radio" class="radio" type="radio" />
                 <label for="radio2" class="gridInput">
-                    <div class="labelRadio price">Bamboo Stand</div>
+                    <div class="labelRadio">Bamboo Stand</div>
                     <div class="pledgeRadio price">Pledge $25 or more</div>
                     <div class="leftRadio left end"><span class="number" id="modalNumber"></span>left</div>
                     <div class="descriptionRadio aboutText">
@@ -181,13 +209,13 @@
             <span id="closeModal" class="closeModal"><img src="assets/icon-close-modal.svg" />
         </div>
     </div>
-    <div id="successModal" class="successModal">
+     <div id="successModal" class="successModal">
         <div class="successContent">
             <div>
                 <img src="assets/icon-check.svg" />
             </div>
-            <div>Thanks for your support!</div>
-            <div>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will
+            <div class="boldClass">Thanks for your support!</div>
+            <div class="successText">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will
                 get an email once our campaign is completed.</div>
             <div><button id="closeSuccessModal" class="btnPrimary">Got it!</button></div>
         </div>
