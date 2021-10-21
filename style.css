@@ -44,48 +44,6 @@ a:hover {
     font-weight: bold;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-}
-
-.hamburger {
-    display: none;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-}
-
-.navMenu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navItem {
-    margin-left: 5rem;
-}
-
-.navLink {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: black;
-}
-
-.navLogo {
-    font-size: 2.1rem;
-    font-weight: 500;
-    color: white;
-}
 
 .menu {
     margin-top: 15px;
@@ -566,7 +524,7 @@ progress::-webkit-progress-value {
     padding-left: 10px;
     display: grid;
     grid-template-columns: minmax(30px, 32px) 1fr;
-    grid-template-rows: 25px 100px 1fr;
+    grid-template-rows: 25px 100px 50px;
     grid-template-areas:
         "r inp"
         ". ."
@@ -815,7 +773,7 @@ input[type="text"] {
             ". btnReward .";
     }
 
-    /* 
+
     .inputGroups {
         padding-left: 0;
         display: grid;
@@ -828,52 +786,44 @@ input[type="text"] {
 
     .gridInput {
         display: grid;
-        grid-template-columns: minmax(190px, 200px) minmax(100px, 145px) 1fr 28px;
-        grid-template-rows: 25px 100px;
+        grid-template-columns: auto;
+        grid-template-rows: 20px 20px minmax(130px, 150px) 80px;
         grid-template-areas:
-            "label pledge left ."
-            " desc desc desc .";
-    } */
-
-    .navMenu {
-        position: fixed;
-        left: -100%;
-        top: 5rem;
-        flex-direction: column;
-        background-color: #fff;
-        width: 100%;
-        border-radius: 10px;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow:
-            0 10px 27px rgba(0, 0, 0, 0.05);
+            "label"
+            "pledge"
+            "desc"
+            "left";
+        gap: 10px;
+        align-items: end;
+        justify-items: center;
     }
 
-    .navMenu.active {
-        left: 0;
+    .labelRadio {
+        grid-area: label;
+        font-weight: bold;
+        align-self: start;
     }
 
-    .navItem {
-        margin: 2.5rem 0;
+    .pledgeRadio {
+        grid-area: pledge;
     }
 
-    .hamburger {
-        display: block;
-        cursor: pointer;
+    .labelRadio:hover {
+        color: #3CB3AB;
     }
 
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
+    .leftRadio {
+        grid-area: left;
     }
 
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    .descriptionRadio {
+        grid-area: desc;
+        justify-self: end;
     }
 
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    .descriptionRadio {
+        line-height: 17px;
     }
-
 
 }
 
