@@ -8,5 +8,4 @@ var presenter;
 
 function initialize() {
     presenter = new Presenter();
-    // createForm();
 }

@@ -12,9 +12,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/*Mobile: 375px
-- Desktop: 1440px
-- Weights: 400, 500, 700 */
 /* HEADER */
 
 .pageHeader {
@@ -60,7 +57,6 @@ a:hover {
 
 .header {
     background: white;
-    box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     display: flex;
@@ -147,8 +143,6 @@ a:hover {
 .btnSecondaryBookmarked {
     background-color: #92cac6;
     color: #147A73;
-    /* opacity: 0.6; */
-
 }
 
 .btnPrimary:hover {
@@ -176,7 +170,7 @@ a:hover {
         ". backed total days ."
         ". progress progress progress progress";
     justify-content: center;
-    min-width: 730px;
+    /* min-width: 730px; */
 
 }
 
@@ -264,10 +258,8 @@ progress::-webkit-progress-value {
     flex-direction: column;
     gap: 24px;
     min-width: 730px;
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutTitle {
@@ -618,4 +610,51 @@ input[type='radio']:checked:after {
 
 input[type="text"] {
     outline: none;
+}
+
+@media only screen and (max-width: 725px) {
+
+    /* Header */
+    .pageHeader {
+        background: no-repeat top/cover url('assets/image-hero-mobile.jpg');
+        background-size: 100% 100%;
+        min-width: 0;
+    }
+
+    .header {
+        min-height: 250px;
+        min-width: 320px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .subTitle {
+        width: 60%;
+        font-size: 14px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+        transform: translateY(10%);
+    }
+
+    .buttonsHeader {
+        justify-content: flex-end;
+        gap: 3px;
+    }
+
+    .btnBookmark {
+        align-self: center;
+        height: 0;
+        font-size: 0;
+    }
+
+    /* Progress */
+
 }
