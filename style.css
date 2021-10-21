@@ -12,9 +12,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/*Mobile: 375px
-- Desktop: 1440px
-- Weights: 400, 500, 700 */
 /* HEADER */
 
 .pageHeader {
@@ -53,6 +50,7 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    height: 100vh;
     transform: translateY(-9%);
 }
 
@@ -60,15 +58,14 @@ a:hover {
 
 .header {
     background: white;
-    box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-height: 297px;
-    min-width: 730px;
+    flex: 0 0 297px;
+    width: 50%;
 }
 
 .logo {
@@ -147,8 +144,6 @@ a:hover {
 .btnSecondaryBookmarked {
     background-color: #92cac6;
     color: #147A73;
-    /* opacity: 0.6; */
-
 }
 
 .btnPrimary:hover {
@@ -165,19 +160,16 @@ a:hover {
 
 .progress {
     background-color: white;
-    box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
     display: grid;
-    max-height: 212px;
     grid-template-columns: 48px minmax(137px, 210px) minmax(59px, 210px) minmax(58px, 210px) 48px;
     grid-template-rows: 48px 1fr minmax(75px, 90px);
     grid-template-areas: ". . . . ."
         ". backed total days ."
         ". progress progress progress progress";
     justify-content: center;
-    min-width: 730px;
-
+    width: 50%;
 }
 
 .backed {
@@ -196,6 +188,8 @@ a:hover {
 
 .days {
     grid-area: days;
+    display: flex;
+    flex-direction: column;
     margin-left: 40px;
 }
 
@@ -204,7 +198,6 @@ a:hover {
     grid-area: progress;
     justify-self: stretch;
     align-self: center;
-    grid-area: progress;
 }
 
 .greenProgress {
@@ -256,18 +249,16 @@ progress::-webkit-progress-value {
 
 .about {
     background-color: white;
-    box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
-    max-width: 212px;
+    align-self: center;
+    justify-self: center;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    min-width: 730px;
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .aboutTitle {
@@ -276,8 +267,10 @@ progress::-webkit-progress-value {
     font-size: 20px;
     line-height: 24px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
+    padding: 1%;
 }
 
 .aboutText {
@@ -288,18 +281,23 @@ progress::-webkit-progress-value {
     line-height: 30px;
     display: flex;
     align-items: center;
+    text-align: left;
     color: #7A7A7A;
+    padding: 1%;
+
 }
 
 .aboutCard {
+    margin: 1%;
+    align-self: stretch;
     border: 1px solid #7A7A7A;
     display: grid;
-    grid-template-columns: 32px minmax(214px, 250px) minmax(200px, 250px) 157px 32px;
+    grid-template-columns: 5px minmax(220px, 230px) 1fr minmax(160px, 180px) 5px;
     grid-template-rows: 19px 22px minmax(40px, 60px) minmax(35px, 48px) 16px;
     grid-template-areas: ". . . . ."
         ". top . price ."
         ". details details details ."
-        ". left . btnReward . "
+        ". left . btnReward ."
         ". . . . .";
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -394,19 +392,19 @@ progress::-webkit-progress-value {
 }
 
 .outOfStockCard {
+    margin: 1%;
+    align-self: stretch;
     border: 1px solid #7A7A7A;
     display: grid;
-    grid-template-columns: 32px minmax(214px, 250px) minmax(200px, 250px) 157px 32px;
+    grid-template-columns: 5px minmax(220px, 230px) 1fr minmax(160px, 180px) 5px;
     grid-template-rows: 19px 22px minmax(40px, 60px) minmax(35px, 48px) 16px;
     grid-template-areas: ". . . . ."
         ". top . price ."
         ". details details details ."
-        ". left . btnReward . "
+        ". left . btnReward ."
         ". . . . .";
     border: 1px solid rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
     border-radius: 8px;
-    row-gap: 15px;
 }
 
 .textOutOfStock,
@@ -454,33 +452,27 @@ progress::-webkit-progress-value {
 }
 
 .successModal {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(77, 77, 77, .7);
-    transition: all .4s;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(77, 77, 77, .7);
 }
 
 
 .successContent {
-    max-width: 540px;
     border-radius: 4px;
     position: relative;
+    width: 50%;
+    margin: 50px auto;
     background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 48px;
-    padding-bottom: 48px;
-    padding-left: 48px;
-    padding-right: 48px;
     gap: 35px;
 }
 
@@ -512,11 +504,12 @@ progress::-webkit-progress-value {
     gap: 20px;
     padding-left: 10px;
     display: grid;
-    grid-template-columns: minmax(30px, 50px) 1fr;
+    grid-template-columns: minmax(30px, 32px) 1fr;
     grid-template-rows: 25px 100px 1fr;
     grid-template-areas:
         "r inp"
-        ". .";
+        ". ."
+        "fo fo";
 }
 
 .radio {
@@ -550,6 +543,7 @@ progress::-webkit-progress-value {
 }
 
 .pledge {
+    grid-area: fo;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -562,9 +556,10 @@ progress::-webkit-progress-value {
 }
 
 .inputField {
-    background: url('assets/attach_money_black_24dp.svg') no-repeat scroll 7px 10px;
+    background: url('assets/attach_money_black_24dp.svg') no-repeat scroll 0px 3px;
     opacity: 0.6;
     padding-left: 30px;
+    height: 30px;
     border: 1px solid var(--darkCyan);
     border-radius: 33px;
     max-width: 90px;
@@ -573,6 +568,17 @@ progress::-webkit-progress-value {
     font-family: 'Commissioner', sans-serif;
     line-height: 17px;
     cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .myClickState {
@@ -591,7 +597,6 @@ input[type='radio']:after {
     display: inline-block;
     visibility: visible;
     border: 2px solid #3CB3AB;
-    ;
 }
 
 input[type='radio']:checked:after {
@@ -611,4 +616,101 @@ input[type='radio']:checked:after {
 
 input[type="text"] {
     outline: none;
+}
+
+@media only screen and (max-width: 786px) {
+
+    /* Header */
+    .pageHeader {
+        background: no-repeat top/cover url('assets/image-hero-mobile.jpg');
+        background-size: 100% 100%;
+        min-width: 0;
+    }
+
+    .header {
+        min-height: 250px;
+        min-width: 200px;
+    }
+
+    .title {
+        font-size: 20px;
+        /* overflow-wrap: break-word; */
+        max-width: 300px;
+    }
+
+    .subTitle {
+        width: 60%;
+        font-size: 14px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        transform: translateY(-9%);
+    }
+
+    .buttonsHeader {
+        align-self: flex-start;
+        justify-content: center;
+    }
+
+    .btnBookmark {
+        width: 0;
+        align-self: center;
+        height: 0;
+        font-size: 0;
+    }
+
+}
+
+/* Progress */
+
+.progress {
+    /* min-height: 250px;
+    width: 50%;
+    grid-template-columns: minmax(100px, 445px);
+    grid-template-rows: minmax(66px, 90px) minmax(66px, 80px) minmax(66px, 80px) 30px;
+    grid-template-areas: "backed"
+        "total"
+        "days"
+        "progress";
+    justify-content: center; */
+}
+
+.verticle-line {
+    align-self: center;
+    border-left: none;
+    border-bottom: 1px solid rgba(135, 135, 157, 0.25);
+    width: 63px;
+}
+
+.number {
+    font-size: 28px;
+    line-height: 35px;
+}
+
+.letters {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.backed {
+    align-self: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.days {
+    margin: 0;
+    align-items: center;
 }
