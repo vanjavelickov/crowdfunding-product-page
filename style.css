@@ -506,7 +506,7 @@ progress::-webkit-progress-value {
     gap: 20px;
     padding-left: 10px;
     display: grid;
-    grid-template-columns: minmax(30px, 50px) 1fr;
+    grid-template-columns: minmax(30px, 32px) 1fr;
     grid-template-rows: 25px 100px 1fr;
     grid-template-areas:
         "r inp"
