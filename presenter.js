@@ -15,12 +15,16 @@ export class Presenter {
         this.openModalBtn.onclick = () => this.openModal();
         this.closeModalBtn = document.getElementById('closeModal');
         this.closeModalBtn.onclick = () => this.closeModal();
+        this.closeSuccessModalBtn = document.getElementById('closeSuccessModal');
+        this.closeSuccessModalBtn.onclick = () => this.closeSuccessModal();
         window.onclick = (event) => this.outsideClick(event);
         this.projectModal = document.getElementById('projectModal');
+        this.successModal = document.getElementById('successModal');
         // bookmarked button
         this.buttonSecondary = document.getElementById('bookmarkedBtn');
         this.buttonSecondary.onclick = () => this.bookmark();
         this.backedMoney = 89914;
+        this.backedMoneyNeeded = 100000;
         this.totalBackers = 5007;
         this.daysLeft = 56;
         this.bamboStand = 101;
@@ -29,7 +33,6 @@ export class Presenter {
         this.bookmarked = false;
         this.inputGroups = document.getElementsByClassName('inputGroups');
         this.gridInputs = document.getElementsByClassName('gridInput');
-        // this.inputGroups.onclick = (event) => this.checkRadioInput(event);
         for (let i = 0; i < this.gridInputs.length; i++) {
             this.gridInputs[i].onclick = (event) => this.stopLabelEvent(event);
         }
@@ -38,6 +41,8 @@ export class Presenter {
         }
         this.showValues();
         this.createForm();
+        this.closeSuccessModal();
+        this.progress = document.getElementsByClassName('greenProgress')[0];
     }
 
     showValues() {
@@ -81,37 +86,98 @@ export class Presenter {
     }
 
     createForm() {
-        this.form = document.createElement('form');
-        this.form.setAttribute("action", "submit.php");
+        this.form = document.createElement("form");
+        this.form.setAttribute("class", "pledge");
+        this.spanPledge = document.createElement("span");
+        this.spanPledge.innerHTML = "Enter your pledge";
         this.pledgeInput = document.createElement("input");
-        this.pledgeInput.setAttribute("type", "text");
+        this.pledgeInput.setAttribute("class", "pledgeInput");
+        this.pledgeInput.setAttribute("type", "number");
+        this.pledgeInput.setAttribute("autocomplete", "off");
         this.pledgeInput.setAttribute("name", "money");
-        this.submitInput = document.createElement("button");
-        this.submitInput.innerHTML = "Pledge";
+        this.pledgeInput.setAttribute("id", "money");
+        this.pledgeInput.setAttribute("class", "inputField")
+        this.pledgeInput.onclick = (event) => event.stopPropagation();
+        this.submitButton = document.createElement("button");
+        this.submitButton.innerHTML = "Continue";
+        this.submitButton.setAttribute("type", "submit");
+        this.submitButton.setAttribute("class", "btnReward")
+        this.submitButton.setAttribute("class", "btnPrimary")
+        this.form.onsubmit = (event) => this.changeValuesForPledge(event);
+        this.form.appendChild(this.spanPledge);
         this.form.appendChild(this.pledgeInput);
-        this.form.appendChild(this.submitInput);
-        // document.getElementById(event.target.id).appendChild(form);
-        //document.body.appendChild(form);
+        this.form.appendChild(this.submitButton);
     }
 
     stopLabelEvent(event) {
         event.stopImmediatePropagation();
     }
 
+    changeValuesForPledge(event) {
+        event.preventDefault();
+        this.valueFromInput = this.pledgeInput.value;
+        if (this.valueFromInput === '')
+            this.valueFromInput = 0;
+        this.backedMoney = this.backedMoney + parseInt(this.valueFromInput);
+        this.backedMoneyNumber.innerHTML = `$${this.backedMoney}`;
+        this.totalBackers++;
+        this.totalBackersNumber.innerHTML = this.totalBackers;
+        this.progress.value = parseInt(this.backedMoney / 100000 * 100);
+        if (event.target.parentElement.id === '2') {
+            this.bamboStand--;
+            this.bamboStandNumber.innerHTML = `${this.bamboStand}`;
+            this.modalNumber.innerHTML = `${this.bamboStand}`;
+        } else if (event.target.parentElement.id === '3') {
+            this.blackStand--;
+            this.blackStandNumber.innerHTML = `${this.blackStand}`;
+            this.modalBlack.innerHTML = `${this.blackStand}`;
+        }
+        this.closeModal();
+        this.openSuccessModal();
+    }
+
     checkRadioInput(event) {
-        // event.preventDefault();
-        event.stopImmediatePropagation();
-        console.log('broj puta')
         let nearestArticle = event.target.closest("article");
         let idNearestArticle = document.getElementById(nearestArticle.id);
-        console.log(idNearestArticle)
-        this.appendForm(idNearestArticle);
-        // let createdDiv = document.createElement('div');
-        // idNearestArticle.appendChild(createdDiv);
+        this.setMinAndMax(idNearestArticle);
+        this.childNumber = nearestArticle.querySelector('.number')
+        if (!(this.childNumber.innerHTML === '0' || this.childNumber.innerHTML.length === 0)) {
+            this.appendForm(idNearestArticle);
+        } else {
+            this.appendButton(idNearestArticle);
+        }
+    }
+
+    setMinAndMax(value) {
+        if (value.id === '2') {
+            this.minimum = 25;
+            this.maximum = 74;
+        } else if (value.id === '3') {
+            this.minimum = 75;
+            this.maximum = this.backedMoneyNeeded - this.backedMoney;
+        }
+        this.pledgeInput.setAttribute("min", this.minimum);
+        this.pledgeInput.setAttribute("max", this.maximum);
     }
 
     appendForm(divId) {
-        console.log(this.form)
+        this.spanPledge.style.display = 'block';
+        this.pledgeInput.style.display = 'block';
         divId.appendChild(this.form);
     }
+
+    appendButton(divId) {
+        divId.appendChild(this.form);
+        this.spanPledge.style.display = 'none';
+        this.pledgeInput.style.display = 'none';
+    }
+
+    openSuccessModal() {
+        this.successModal.style.display = 'block';
+    }
+
+    closeSuccessModal() {
+        this.successModal.style.display = 'none';
+    }
+
 }
