@@ -36,6 +36,10 @@ a:hover {
     text-decoration: none;
 }
 
+.boldClass {
+    font-weight: bold;
+}
+
 .menu {
     margin-top: 15px;
     display: flex;
@@ -474,9 +478,16 @@ progress::-webkit-progress-value {
     margin: 50px auto;
     background: white;
     display: flex;
+    max-width: 60%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 35px;
+}
+
+.successText {
+    text-align: center;
+    max-width: 75%;
 }
 
 .closeModal {
@@ -756,6 +767,30 @@ input[type="text"] {
             ". left ."
             ". btnReward .";
     }
+
+    /* 
+    .inputGroups {
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: minmax(30px, 32px) minmax(220px, 260px);
+        grid-template-rows: minmax(125px, 250px) minmax(120px, 130px);
+        grid-template-areas:
+            "r inp"
+            "fo fo";
+    }
+
+    .gridInput {
+        display: grid;
+        grid-template-columns: minmax(190px, 200px) minmax(100px, 145px) 1fr 28px;
+        grid-template-rows: 25px 100px;
+        grid-template-areas:
+            "label pledge left ."
+            " desc desc desc .";
+    } */
+
+
+
+
 }
 
 @media only screen and (max-width: 450px) {
