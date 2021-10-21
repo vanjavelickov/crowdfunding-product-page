@@ -122,7 +122,7 @@ export class Presenter {
         this.backedMoneyNumber.innerHTML = `$${this.backedMoney}`;
         this.totalBackers++;
         this.totalBackersNumber.innerHTML = this.totalBackers;
-        this.progress.value = parseInt(this.backedMoney / 100000 * 100);
+        this.progress.value = parseInt(this.backedMoney / 1000);
         if (event.target.parentElement.id === '2') {
             this.bamboStand--;
             this.bamboStandNumber.innerHTML = `${this.bamboStand}`;
