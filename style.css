@@ -50,6 +50,7 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    height: 100vh;
     transform: translateY(-9%);
 }
 
@@ -64,7 +65,7 @@ a:hover {
     justify-content: space-around;
     align-items: center;
     min-height: 297px;
-    min-width: 730px;
+    width: 50%;
 }
 
 .logo {
@@ -170,8 +171,7 @@ a:hover {
         ". backed total days ."
         ". progress progress progress progress";
     justify-content: center;
-    /* min-width: 730px; */
-
+    width: 50%;
 }
 
 .backed {
@@ -190,6 +190,8 @@ a:hover {
 
 .days {
     grid-area: days;
+    display: flex;
+    flex-direction: column;
     margin-left: 40px;
 }
 
@@ -198,7 +200,6 @@ a:hover {
     grid-area: progress;
     justify-self: stretch;
     align-self: center;
-    grid-area: progress;
 }
 
 .greenProgress {
@@ -250,16 +251,16 @@ progress::-webkit-progress-value {
 
 .about {
     background-color: white;
-    box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.0497193);
-    max-width: 212px;
+    align-self: center;
+    justify-self: center;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    min-width: 730px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .aboutTitle {
@@ -268,8 +269,10 @@ progress::-webkit-progress-value {
     font-size: 20px;
     line-height: 24px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
+    padding: 1%;
 }
 
 .aboutText {
@@ -280,18 +283,23 @@ progress::-webkit-progress-value {
     line-height: 30px;
     display: flex;
     align-items: center;
+    text-align: left;
     color: #7A7A7A;
+    padding: 1%;
+
 }
 
 .aboutCard {
+    margin: 1%;
+    align-self: stretch;
     border: 1px solid #7A7A7A;
     display: grid;
-    grid-template-columns: 32px minmax(214px, 250px) minmax(200px, 250px) 157px 32px;
+    grid-template-columns: 5px minmax(220px, 230px) 1fr minmax(160px, 180px) 5px;
     grid-template-rows: 19px 22px minmax(40px, 60px) minmax(35px, 48px) 16px;
     grid-template-areas: ". . . . ."
         ". top . price ."
         ". details details details ."
-        ". left . btnReward . "
+        ". left . btnReward ."
         ". . . . .";
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -386,19 +394,19 @@ progress::-webkit-progress-value {
 }
 
 .outOfStockCard {
+    margin: 1%;
+    align-self: stretch;
     border: 1px solid #7A7A7A;
     display: grid;
-    grid-template-columns: 32px minmax(214px, 250px) minmax(200px, 250px) 157px 32px;
+    grid-template-columns: 5px minmax(220px, 230px) 1fr minmax(160px, 180px) 5px;
     grid-template-rows: 19px 22px minmax(40px, 60px) minmax(35px, 48px) 16px;
     grid-template-areas: ". . . . ."
         ". top . price ."
         ". details details details ."
-        ". left . btnReward . "
+        ". left . btnReward ."
         ". . . . .";
     border: 1px solid rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
     border-radius: 8px;
-    row-gap: 15px;
 }
 
 .textOutOfStock,
@@ -612,7 +620,7 @@ input[type="text"] {
     outline: none;
 }
 
-@media only screen and (max-width: 725px) {
+@media only screen and (max-width: 786px) {
 
     /* Header */
     .pageHeader {
@@ -623,11 +631,13 @@ input[type="text"] {
 
     .header {
         min-height: 250px;
-        min-width: 320px;
+        min-width: 200px;
     }
 
     .title {
         font-size: 20px;
+        /* overflow-wrap: break-word; */
+        max-width: 300px;
     }
 
     .subTitle {
@@ -639,14 +649,14 @@ input[type="text"] {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        gap: 0;
-        transform: translateY(10%);
+        justify-content: flex-start;
+        gap: 20px;
+        transform: translateY(-9%);
     }
 
     .buttonsHeader {
-        justify-content: flex-end;
-        gap: 3px;
+        /* justify-content: stretch; */
+        /* gap: 3px; */
     }
 
     .btnBookmark {
@@ -655,6 +665,62 @@ input[type="text"] {
         font-size: 0;
     }
 
+    .btnPrimary {
+        width: 50px;
+        height: 48px;
+        border: 0px;
+        white-space: nowrap;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
     /* Progress */
+
+    .progress {
+        min-height: 250px;
+        width: 50%;
+        grid-template-columns: minmax(100px, 445px);
+        grid-template-rows: minmax(66px, 90px) minmax(66px, 80px) minmax(66px, 80px) 30px;
+        grid-template-areas: "backed"
+            "total"
+            "days"
+            "progress";
+        justify-content: center;
+    }
+
+    .verticle-line {
+        align-self: center;
+        border-left: none;
+        border-bottom: 1px solid rgba(135, 135, 157, 0.25);
+        width: 63px;
+    }
+
+    .number {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    .letters {
+        font-size: 13px;
+        line-height: 16px;
+    }
+
+    .backed {
+        align-self: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .total {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .days {
+        margin: 0;
+        align-items: center;
+    }
 
 }
