@@ -1,5 +1,9 @@
 export class Presenter {
     constructor() {
+        this.iconHamburger = document.getElementById('iconHamburger');
+        this.icHamb = document.getElementById('icHamb');
+        this.iconHamburger.onclick = () => this.openHamburger();
+        this.menu = document.getElementById("myMenu");
         this.backedMoneyNumber = document.getElementById('number');
         this.totalBackersNumber = document.getElementById('total');
         this.daysLeftNumber = document.getElementById('days');
@@ -178,6 +182,14 @@ export class Presenter {
 
     closeSuccessModal() {
         this.successModal.style.display = 'none';
+    }
+
+    openHamburger() {
+        if (this.menu.className === "menu") {
+          this.menu.className += " responsive";
+        } else {
+          this.menu.className = "menu";
+        }
     }
 
 }
